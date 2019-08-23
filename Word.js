@@ -7,7 +7,7 @@ var Word = function(wordArray) {
     /* A function that returns a string representing the word. This calls the function on each 
     Letter object (the first function defined in Letter.js) that displays the character or an underscore 
     and concatenate those together.*/
-    this.createAndDisplayWord = function() {
+    /*this.createAndDisplayWord = function() {
         var wordDispl = [];
         console.log("wordArray inside createAndDisplayWord: " + wordArray);
         for(var i = 0; i < wordArray.length; i++) {
@@ -22,15 +22,21 @@ var Word = function(wordArray) {
         }
         //console.log("wordDispl: " + wordDispl);
         return wordDispl.join(" ");
+    }*/
+    this.createWord = function() {
+        for(var i = 0; i < wordArray.length; i++) {
+            var lettr = new Letter(wordArray[i]);
+            this.testWordArray.push(lettr);
+        }
     }
     
-    /* this.displayWord = function() {
+    this.displayWord = function() {
         var wordDispl = [];
         for(var i = 0; i < this.testWordArray.length; i++) {
             wordDispl.push(this.testWordArray[i].toString());
         }
         return wordDispl.join(" ");
-    } */
+    }
 
     /* A function that takes a character as an argument */
     this.checkWordGuess = function(userGuess) {
