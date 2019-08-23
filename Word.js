@@ -9,7 +9,7 @@ var Word = function(wordArray) {
     and concatenate those together.*/
     this.createAndDisplayWord = function() {
         var wordDispl = [];
-        //console.log("wordArray inside createAndDisplayWord: " + wordArray);
+        console.log("wordArray inside createAndDisplayWord: " + wordArray);
         for(var i = 0; i < wordArray.length; i++) {
             //console.log("wordArray["+i+"]:" + wordArray[i]);
             var lettr = new Letter(wordArray[i]); // Letter object
