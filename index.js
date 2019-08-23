@@ -1,7 +1,7 @@
 var Word = require("./Word.js");
 var inquirer = require('inquirer');
 
-var provinceList = ["Ontario", "Quebec", "Alberta", "Manitoba", "Saskatchewan", "British Columbia", "Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia"];
+var provinceList = ["ONTARIO", "QUEBEC", "ALBERTA", "MANITOBA", "SASKATCHEWAN", "BRITISH COLUMBIA", "NEWFOUNDLAND AND LABRADOR", "PRINCE EDWARD ISLAND", "NOVA SCOTIA"];
 var selection = 0;
 var selectedProvince = "";
 var wordToGuess = "";
@@ -9,13 +9,13 @@ var numGuesses = 0;
 
 function startWordCliGame() {
     if(provinceList.length < 2) {
-        provinceList = ["Ontario", "Quebec", "Alberta", "Manitoba", "Saskatchewan", "British Columbia", "Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia"];
+        provinceList = ["ONTARIO", "QUEBEC", "ALBERTA", "MANITOBA", "SASKATCHEWAN", "BRITISH COLUMBIA", "NEWFOUNDLAND AND LABRADOR", "PRINCE EDWARD ISLAND", "NOVA SCOTIA"];
     }
     selection = Math.floor(Math.random()*provinceList.length);
     selectedProvince = provinceList[selection];
     console.log("selected Province: " + selectedProvince);
     wordToGuess = new Word(selectedProvince);
-    wordToGuess.createAndDisplayWord();
+    wordToGuess.createWord();
     if(selection > -1) {
         provinceList.splice(selection, 1);
     }
@@ -25,7 +25,7 @@ function startWordCliGame() {
 
 function promptUserInput() {
     if(numGuesses < 8) {
-        console.log(wordToGuess.createAndDisplayWord());
+        console.log(wordToGuess.displayWord());
         inquirer.prompt([
             {
                 type: "input",
@@ -49,9 +49,9 @@ function promptUserInput() {
 function checkUserInput(data) {
     if((data.letter.length === 1) && /^[a-zA-Z]+$/.test(data.letter)) {
         var checkableLetter = data.letter.toUpperCase();
-        var tempWord = wordToGuess.createAndDisplayWord();
+        var tempWord = wordToGuess.displayWord();
         wordToGuess.checkWordGuess(checkableLetter);
-        if(tempWord === wordToGuess.createAndDisplayWord()) {
+        if(tempWord === wordToGuess.displayWord()) {
             console.log("\nSorry, wrong letter!\n");
             numGuesses++;
             console.log(((8-numGuesses) + " guesses remaining"));
@@ -67,8 +67,8 @@ function checkUserInput(data) {
 
 function correctGuess() {
     console.log("\nYou guessed correctly.\n");
-    if(selectedProvince.replace(/ /g,"") == (wordToGuess.createAndDisplayWord()).replace(/ /g,"")) {
-        console.log(wordToGuess.createAndDisplayWord());
+    if(selectedProvince.replace(/ /g,"") == (wordToGuess.displayWord()).replace(/ /g,"")) {
+        console.log(wordToGuess.displayWord());
         console.log("Congratulations, you Win!!\n");
         selectedProvince = "";
         wordToGuess = "";
