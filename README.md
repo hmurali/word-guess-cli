@@ -12,7 +12,7 @@ When the user guesses all the letters of the word, the game reloads with a new w
 **Unwanted input and loss**
 If the user tries to guess either more than one letter at a time or else a character that is not a letter, he/she is prompted to pick a letter and only one at a time. If the user guesses wrongly 8 times, the game will reveal the correct answer and load another word for play.
 
-![Province Word Game: Unwanted input and Loss](https://github.com/hmurali/word-guess-cli/blob/master/provincewordgameLOSE.PNG)
+![Province Word Game: Unwanted input and Loss](https://github.com/hmurali/word-guess-cli/blob/master/provincewordgameLOSE_WRONG.PNG)
 
 **About this Application**
 This repository is fro a Javascript application using Node, containing Javascript files and .json files. It is meant to be run in Node, not on a hosted site. The application allows the user to play a hangman-style guessing game with words from a list of Canadian provinces.
