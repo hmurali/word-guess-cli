@@ -13,7 +13,7 @@ function startWordCliGame() {
     }
     selection = Math.floor(Math.random()*provinceList.length);
     selectedProvince = provinceList[selection];
-    console.log("selected Province: " + selectedProvince);
+    //console.log("selected Province: " + selectedProvince);
     wordToGuess = new Word(selectedProvince);
     wordToGuess.createWord();
     if(selection > -1) {
